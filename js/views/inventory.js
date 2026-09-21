@@ -1,0 +1,3 @@
+export function renderInventory() {
+  return `<main class="page"><div class="page-head"><div><h1>INVENTORY</h1><div class="subtitle">FIRM PROPERTY · COSMETICS · EQUIPMENT</div></div></div><div class="inventory-grid"><div class="inventory-item"><div class="glyph">▣</div><b>CRT TERMINAL</b><span>Office equipment</span></div><div class="inventory-item"><div class="glyph">♜</div><b>PIT TROPHY</b><span>Firm history</span></div><div class="inventory-item"><div class="glyph">▤</div><b>WALL STREET TIMES</b><span>Archive issue</span></div><div class="inventory-item"><div class="glyph">☎</div><b>DESK PHONE</b><span>Office cosmetic</span></div></div></main>`;
+}
