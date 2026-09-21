@@ -12,42 +12,78 @@ function hotspot(object) {
   </div>`;
 }
 
-function staffSprite(name, className) {
-  return `<span class="staff-sprite ${className}" style="--staff-image:url('./assets/characters/${name}.png')" aria-hidden="true"></span>`;
+function asset(path, className, alt = '') {
+  return `<img class="office-asset ${className}" src="./assets/${path}" alt="${alt}" draggable="false">`;
+}
+
+function staff(path, className, label) {
+  return `<span class="staff-sprite ${className}" style="--staff-image:url('./assets/characters/${path}.png')" role="img" aria-label="${label}"></span>`;
+}
+
+function screen(className, mode) {
+  return `<div class="asset-screen ${className}" aria-hidden="true"><canvas class="crt-screen" data-crt="${mode}"></canvas><span class="screen-glass"></span></div>`;
 }
 
 export function renderOffice(state) {
   const next = state.markets.next;
+
   return `<section class="office-wrap">
     <div class="office-scene" id="officeScene">
-      <img class="office-art pixel-crisp" src="./assets/office/office_base.png" alt="" draggable="false" />
+      <img class="office-base" src="./assets/office/office_base.jpg" alt="Raven Capital office" draggable="false">
 
-      <div class="window-atmosphere" aria-hidden="true">
+      <div class="window-weather" aria-hidden="true">
         <canvas id="weatherCanvas" class="weather-canvas"></canvas>
-        <span class="window-glass"></span>
+        <span class="window-reflection"></span>
       </div>
 
-      <div class="ambient-light city-light" aria-hidden="true"></div>
-      <div class="ambient-light desk-light-left" aria-hidden="true"></div>
-      <div class="ambient-light desk-light-right" aria-hidden="true"></div>
-      <div class="ambient-light exit-light" aria-hidden="true"></div>
+      <div class="scene-light light-window" aria-hidden="true"></div>
+      <div class="scene-light light-trading" aria-hidden="true"></div>
+      <div class="scene-light light-left" aria-hidden="true"></div>
+      <div class="scene-light light-right" aria-hidden="true"></div>
+      <div class="scene-light light-exit" aria-hidden="true"></div>
 
-      <div class="monitor-shell m1"><canvas class="crt-screen" data-crt="analysis"></canvas><span class="scanlines"></span></div>
-      <div class="monitor-shell m2"><canvas class="crt-screen" data-crt="candles"></canvas><span class="scanlines"></span></div>
-      <div class="monitor-shell m3"><canvas class="crt-screen" data-crt="flow"></canvas><span class="scanlines"></span></div>
-      <div class="monitor-shell m4"><canvas class="crt-screen" data-crt="line"></canvas><span class="scanlines"></span></div>
-      <div class="monitor-shell m5"><canvas class="crt-screen" data-crt="risk"></canvas><span class="scanlines"></span></div>
+      ${asset('furniture/tv_block.png', 'asset-tv')}
+      ${asset('furniture/trading_desk.png', 'asset-trading-desk')}
+      ${asset('furniture/analyst_desk.png', 'asset-analyst-desk')}
+      ${asset('furniture/risk_desk.png', 'asset-risk-desk')}
+      ${asset('furniture/lounge.png', 'asset-lounge')}
+      ${asset('furniture/finance_desk.png', 'asset-finance-desk')}
+      ${asset('furniture/exit_zone.png', 'asset-exit')}
 
-      <div class="tv-overlay" aria-hidden="true">
-        <b>LIVE</b><span>MARKET NEWS</span><strong>TECH STOCKS SURGE</strong>
+      ${asset('props/cat.png', 'asset-cat')}
+      ${asset('props/newspapers.png', 'asset-newspapers')}
+
+      ${staff('newspaper_worker', 'staff-news', 'News employee')}
+      ${staff('phone_worker', 'staff-phone', 'Phone employee')}
+      ${staff('trader', 'staff-trader', 'Trader')}
+      ${staff('analyst', 'staff-analyst', 'Analyst')}
+      ${staff('analyst', 'staff-risk staff-risk-placeholder', 'Risk manager placeholder')}
+
+      ${screen('screen-tv', 'ticker')}
+
+      ${screen('screen-trade-1', 'line')}
+      ${screen('screen-trade-2', 'analysis')}
+      ${screen('screen-trade-3', 'candles')}
+      ${screen('screen-trade-4', 'flow')}
+      ${screen('screen-trade-5', 'risk')}
+
+      ${screen('screen-analyst-1', 'analysis')}
+      ${screen('screen-analyst-2', 'candles')}
+      ${screen('screen-analyst-3', 'flow')}
+
+      ${screen('screen-risk-1', 'risk')}
+      ${screen('screen-risk-2', 'line')}
+      ${screen('screen-risk-3', 'flow')}
+
+      ${screen('screen-finance-1', 'ticker')}
+      ${screen('screen-finance-2', 'analysis')}
+
+      <div class="tv-news-copy" aria-hidden="true">
+        <b>LIVE</b>
+        <span>MARKET NEWS</span>
+        <strong>TECH STOCKS SURGE</strong>
         <i>PIT #184 · FLOW WATCH · CLOSING BELL</i>
       </div>
-
-      ${staffSprite('phone_worker', 'staff-phone')}
-      ${staffSprite('newspaper', 'staff-news')}
-      ${staffSprite('analyst', 'staff-analyst')}
-      ${staffSprite('trader', 'staff-trader')}
-      ${staffSprite('risk', 'staff-risk')}
 
       <div class="next-market-anchor hs-next">
         <button class="next-market-card" data-action="nextMarket">
