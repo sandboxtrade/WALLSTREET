@@ -1,192 +1,256 @@
 .office-wrap {
   position: relative;
-  background: #0a0d12;
+  background: #07090d;
   overflow: hidden;
   border-bottom: 1px solid #253247;
 }
+
 .office-scene {
   position: relative;
   width: 100%;
-  aspect-ratio: 480 / 1050;
-  min-height: 790px;
+  aspect-ratio: 480 / 1180;
+  min-height: 920px;
   overflow: hidden;
   isolation: isolate;
+  background: #0b0c10;
+}
+
+.office-art {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  user-select: none;
+  pointer-events: none;
+}
+
+.window-atmosphere {
+  position: absolute;
+  left: 27.4%;
+  top: .68%;
+  width: 70.5%;
+  height: 32.3%;
+  z-index: 5;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.weather-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent;
+}
+
+.window-glass {
+  position: absolute;
+  inset: 0;
   background:
-    linear-gradient(180deg, transparent 0 27%, rgba(0,0,0,.08) 27% 100%),
-    #151318;
+    linear-gradient(108deg, rgba(255,255,255,.08), transparent 15% 61%, rgba(173,194,227,.025) 73%, transparent 83%),
+    linear-gradient(180deg, rgba(56,70,111,.03), rgba(255,130,88,.025));
+  mix-blend-mode: screen;
 }
-.office-scene::after {
-  content:"";
-  position:absolute; inset:0; z-index:55; pointer-events:none;
-  background: radial-gradient(ellipse at 52% 45%, transparent 0 48%, rgba(0,0,0,.13) 72%, rgba(0,0,0,.53) 100%);
+
+.ambient-light {
+  position: absolute;
+  z-index: 12;
+  pointer-events: none;
+  mix-blend-mode: screen;
 }
-.wall {
-  position:absolute; inset:0 0 56%; z-index:0;
-  background:
-    repeating-linear-gradient(0deg, transparent 0 16px, rgba(0,0,0,.24) 16px 18px),
-    repeating-linear-gradient(90deg, #30252a 0 42px, #2b2026 42px 80px);
-  box-shadow: inset 0 -22px 38px rgba(0,0,0,.5);
+
+.city-light {
+  left: 24%;
+  right: 0;
+  top: 0;
+  height: 36%;
+  background: radial-gradient(ellipse at 62% 45%, rgba(81,95,177,.15), transparent 65%);
 }
-.brick-left {
-  position:absolute; left:0; top:9%; width:23%; height:36%; z-index:8;
-  background:
-    linear-gradient(90deg, rgba(0,0,0,.52), transparent 72%),
-    repeating-linear-gradient(0deg, transparent 0 12px, #17171b 12px 14px),
-    repeating-linear-gradient(90deg, #3b2b28 0 26px, #49312b 26px 52px);
-  border-right: 3px solid #16171b;
+
+.desk-light-left {
+  left: 5%;
+  top: 39%;
+  width: 38%;
+  height: 26%;
+  background: radial-gradient(circle at 54% 28%, rgba(255,185,87,.20), rgba(255,149,59,.04) 38%, transparent 67%);
 }
-.city-window {
-  position:absolute; left:21%; right:4%; top:2.6%; height:31%; z-index:2;
-  overflow:hidden;
-  border: 8px solid #181b23;
-  border-bottom-width: 11px;
-  background: linear-gradient(#121633, #342650 52%, #9f4f4d 100%);
-  box-shadow: inset 0 0 0 2px #3a4050, 0 7px 0 #0d0f14, 0 14px 30px #0009;
+
+.desk-light-right {
+  right: 1%;
+  top: 41%;
+  width: 37%;
+  height: 25%;
+  background: radial-gradient(circle at 45% 26%, rgba(255,185,87,.18), rgba(255,149,59,.03) 38%, transparent 67%);
 }
-.city-window::before {
-  content:""; position:absolute; inset:0; z-index:14; pointer-events:none;
-  background: linear-gradient(110deg, rgba(255,255,255,.08), transparent 18% 72%, rgba(255,255,255,.035));
+
+.exit-light {
+  left: 3%;
+  bottom: 5%;
+  width: 31%;
+  height: 18%;
+  background: radial-gradient(circle at 45% 16%, rgba(255,95,50,.21), transparent 58%);
 }
-.window-frame-v,.window-frame-h { position:absolute; z-index:16; background:#191d25; box-shadow:0 0 0 1px #313744; }
-.window-frame-v { top:0; bottom:0; width:6px; }
-.window-frame-v.v1 { left:32%; } .window-frame-v.v2 { left:65%; }
-.window-frame-h { left:0; right:0; height:5px; top:58%; }
-.city-layer { position:absolute; left:0; right:0; bottom:0; }
-.city-layer.back { height:72%; opacity:.66; filter:saturate(.8); }
-.city-layer.mid { height:61%; }
-.city-layer.front { height:46%; }
-.skyline-building {
-  position:absolute; bottom:0; background:#0b0e17; border:1px solid #1b2130;
-  box-shadow: inset 0 0 18px #000;
-}
-.skyline-building::before {
-  content:""; position:absolute; inset:6px 5px 7px;
-  background:
-    repeating-linear-gradient(0deg, transparent 0 8px, rgba(237,170,74,.7) 8px 10px, transparent 10px 16px),
-    repeating-linear-gradient(90deg, transparent 0 8px, rgba(0,0,0,.72) 8px 12px);
-  opacity:.66;
-}
-.skyline-building.tower::after { content:""; position:absolute; left:42%; bottom:100%; width:16%; height:28%; background:#090c14; }
-.neon-sign { position:absolute; z-index:8; color:#ffb65f; font-size:8px; font-weight:900; letter-spacing:.04em; text-shadow:0 0 7px #ff6d4f,0 0 12px #ff6d4f; }
-.neon-sign.nyse { left:62%; top:38%; padding:2px 3px; color:#ffd68a; border:1px solid #c9643e; background:#a02822; transform:rotate(-2deg); }
-.neon-sign.dow { left:40%; top:66%; color:#ffcf67; }
-.weather-canvas { position:absolute; inset:0; z-index:13; width:100%; height:100%; background:transparent; border:0; border-radius:0; }
-.office-floor {
-  position:absolute; inset:29% 0 0; z-index:1;
-  background:
-    linear-gradient(90deg, rgba(255,255,255,.018), transparent 30% 70%, rgba(255,255,255,.012)),
-    repeating-linear-gradient(45deg,#241e1f 0 2px,transparent 2px 36px),
-    repeating-linear-gradient(-45deg,#1d191b 0 2px,transparent 2px 36px),
-    linear-gradient(#252022,#17171b 66%,#111317);
-  transform-origin: top;
-}
-.office-floor::before { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(255,162,92,.06),transparent 25%,rgba(0,0,0,.35)); }
-.window-ledge { position:absolute; left:20%; right:3%; top:32.5%; height:3%; z-index:10; background:linear-gradient(#3f3028,#251d1a); border-top:2px solid #654b37; box-shadow:0 8px 12px #0008; }
-.shelf {
-  position:absolute; left:1.5%; top:22%; width:20%; height:17%; z-index:10;
-  background:linear-gradient(90deg,#291d19,#3a2820 50%,#211817); border:2px solid #120f0f; box-shadow:4px 7px 0 #0a0a0c;
-}
-.shelf::before { content:""; position:absolute; inset:13% 8%; background:repeating-linear-gradient(90deg,#4b372d 0 7px,#c0a06f 7px 9px,#22262d 9px 14px); opacity:.75; }
-.poster { position:absolute; z-index:11; padding:8px 6px; border:3px solid #241b18; background:#6b4a37; color:#d5b48a; text-align:center; font-size:9px; line-height:1.2; box-shadow:0 4px 0 #0b0b0d; }
-.poster.good { left:8%; top:15.4%; width:14%; transform:rotate(-2deg); }
-.poster.discipline { right:3.5%; top:8%; width:15%; background:#402e2b; }
-.news-tv {
-  position:absolute; right:3%; top:16%; width:24%; height:15.5%; z-index:18;
-  padding:5px; background:#161b23; border:4px solid #202630; box-shadow:0 7px 0 #080a0d,0 0 18px rgba(72,129,255,.12);
-}
-.news-tv-screen { position:relative; width:100%; height:100%; overflow:hidden; background:linear-gradient(145deg,#1c3e7c,#174fa0 50%,#263f73); border:1px solid #63718a; }
-.news-anchor { position:absolute; right:8%; bottom:18%; width:31%; height:58%; background:#d0aa8d; clip-path:polygon(30% 0,70% 0,84% 24%,80% 100%,20% 100%,16% 24%); box-shadow:0 0 0 6px #151b26 inset; }
-.news-anchor::before { content:""; position:absolute; left:28%; top:4%; width:44%; height:26%; background:#34251f; border-radius:50% 50% 40% 40%; }
-.news-live { position:absolute; right:3px; top:3px; padding:2px 3px; font-size:6px; font-weight:900; background:#ce3037; color:white; }
-.news-lower { position:absolute; left:0; right:0; bottom:0; min-height:24%; padding:3px 4px; background:#e7e0d0; color:#17223a; font-size:5.5px; font-weight:900; line-height:1.15; border-top:3px solid #d33b45; }
-.news-ticker { position:absolute; left:0; right:0; bottom:0; transform:translateY(100%); font-size:5px; background:#ac2632; color:white; white-space:nowrap; }
-.phone-table { position:absolute; left:47%; top:31%; width:21%; height:8%; z-index:19; background:linear-gradient(#4a3429,#2e211d); border:2px solid #1a1412; transform:skewX(-6deg); box-shadow:0 7px 0 #111; }
-.phone-prop { position:absolute; left:54%; top:29%; z-index:20; width:8%; height:4%; border-radius:50% 50% 35% 35%; background:#d9c399; border:2px solid #32291e; transform:rotate(-8deg); }
-.rug {
-  position:absolute; left:26%; right:21%; top:66.5%; height:16%; z-index:4;
-  display:grid; place-items:center; color:#5b5364; font-size:9px; line-height:1.25; letter-spacing:.04em; text-align:center;
-  background:linear-gradient(145deg,#222034,#181827); border:3px solid #363044;
-  transform:skewY(-3deg); box-shadow:0 8px 24px #0008;
-}
-.trading-desk {
-  position:absolute; left:17%; right:11%; top:43%; height:22%; z-index:20;
-  background:linear-gradient(180deg,#553c2b,#3a2922 45%,#261c1a);
-  clip-path:polygon(6% 0,94% 0,100% 43%,89% 100%,11% 100%,0 43%);
-  border:1px solid #6c4c35;
-  box-shadow:0 13px 0 rgba(15,13,13,.86),0 24px 28px #0009;
-}
-.trading-desk::before { content:""; position:absolute; inset:8% 6%; border:1px solid rgba(232,184,106,.14); }
-.desk-paper { position:absolute; z-index:24; width:9%; height:4%; background:#c8bd9d; border:1px solid #665d4e; box-shadow:3px 3px 0 #8a7d62; transform:rotate(-8deg); }
-.desk-paper.p1 { left:31%; top:53%; } .desk-paper.p2 { left:65%; top:58%; transform:rotate(7deg); }
-.coffee { position:absolute; z-index:25; width:3.8%; aspect-ratio:1; border-radius:50%; background:#d0b887; border:2px solid #5e4630; box-shadow:3px 3px 0 #191313; }
-.coffee.c1 { left:41%; top:56%; } .coffee.c2 { right:20%; top:53%; }
-.desk-lamp { position:absolute; z-index:26; width:3%; height:9%; background:#3c332e; border-radius:4px; transform-origin:bottom; }
-.desk-lamp::before { content:""; position:absolute; left:-120%; top:-14%; width:300%; height:30%; background:#e6b56d; border:2px solid #47372a; clip-path:polygon(20% 0,80% 0,100% 100%,0 100%); box-shadow:0 0 16px rgba(255,191,104,.4); }
-.desk-lamp.l1 { left:25%; top:44%; transform:rotate(12deg); } .desk-lamp.l2 { right:16%; top:47%; transform:rotate(-11deg); }
+
 .monitor-shell {
-  position:absolute; z-index:31; padding:2px 2px 5px; background:#202631; border:2px solid #090c10; border-radius:3px; box-shadow:0 3px 0 #080a0c,0 0 0 1px #47505d inset;
+  position: absolute;
+  z-index: 27;
+  padding: 2px 2px 5px;
+  background: #1c222b;
+  border: 2px solid #07090d;
+  border-radius: 2px;
+  box-shadow:
+    0 4px 0 #08090b,
+    inset 0 0 0 1px #46505d,
+    0 0 13px rgba(73,236,166,.07);
+  transform-origin: 50% 100%;
 }
-.monitor-shell::after { content:""; position:absolute; left:43%; top:100%; width:14%; height:10px; background:#20252d; border-inline:1px solid #0a0d10; }
-.monitor-shell .crt-screen { width:100%; height:100%; display:block; background:#061019; border:1px solid #324152; border-radius:1px; }
-.monitor-shell .scanlines { position:absolute; inset:2px 2px 5px; pointer-events:none; background:repeating-linear-gradient(0deg,transparent 0 2px,rgba(0,0,0,.13) 2px 3px); mix-blend-mode:multiply; }
-.monitor-shell.m1 { left:24%; top:40%; width:16%; height:9%; transform:rotate(-5deg); }
-.monitor-shell.m2 { left:39%; top:38.5%; width:18%; height:10.5%; }
-.monitor-shell.m3 { left:56%; top:40%; width:16%; height:9%; transform:rotate(5deg); }
-.monitor-shell.m4 { left:20%; top:50%; width:13%; height:8%; transform:rotate(-8deg); }
-.monitor-shell.m5 { right:12%; top:51%; width:13%; height:8%; transform:rotate(8deg); }
-.side-desk { position:absolute; z-index:15; width:26%; height:13%; background:linear-gradient(#4b3428,#2b201c); border:2px solid #1b1513; box-shadow:0 9px 0 #111; }
-.side-desk.left { left:4%; top:49%; transform:skewY(3deg); }
-.side-desk.right { right:2%; top:49%; transform:skewY(-3deg); }
-.side-monitor { position:absolute; z-index:22; width:18%; height:8.5%; padding:2px 2px 4px; background:#202630; border:2px solid #090c0f; box-shadow:0 3px 0 #08090c; }
-.side-monitor canvas { width:100%; height:100%; border:0; border-radius:0; background:#061019; }
-.side-monitor.analyst { left:6%; top:43.4%; transform:rotate(-4deg); }
-.side-monitor.risk { right:5%; top:44.2%; transform:rotate(4deg); }
-.cabinet { position:absolute; z-index:9; background:linear-gradient(90deg,#1a1d21,#2e3032 55%,#17191c); border:2px solid #101215; box-shadow:4px 6px 0 #0c0d0e; }
-.cabinet::before { content:""; position:absolute; inset:8%; background:repeating-linear-gradient(0deg,transparent 0 22px,#0e1012 22px 24px); }
-.cabinet.c1 { right:1%; top:34%; width:14%; height:31%; }
-.cabinet.c2 { left:2%; top:59%; width:12%; height:18%; }
-.lounge-sofa { position:absolute; left:1%; top:69%; width:28%; height:12%; z-index:10; background:linear-gradient(#5a352d,#39231f); border:3px solid #1d1412; border-radius:13px 13px 5px 5px; box-shadow:0 8px 0 #130f10; }
-.lounge-sofa::before { content:""; position:absolute; left:5%; right:5%; top:8%; height:45%; border-bottom:2px solid #271916; background:repeating-linear-gradient(90deg,transparent 0 31%,#2b1918 31% 33%); }
-.coffee-table { position:absolute; left:25%; top:75%; width:25%; height:7%; z-index:12; background:#51392c; border:2px solid #211713; transform:skewY(-5deg); box-shadow:0 7px 0 #120f0f; }
-.finance-zone { position:absolute; right:2%; top:72%; width:29%; height:15%; z-index:13; background:linear-gradient(#4b3427,#2b201d); border:2px solid #181311; box-shadow:0 8px 0 #0f0d0d; }
-.finance-zone::before { content:""; position:absolute; inset:12% 8%; background:repeating-linear-gradient(90deg,#c7b88f 0 15%,transparent 15% 21%); opacity:.45; }
-.exit-zone { position:absolute; left:2%; bottom:1%; width:36%; height:18%; z-index:11; background:linear-gradient(90deg,#22252c,#313036 60%,#171a20); border:3px solid #101217; box-shadow:7px 0 0 #0a0b0d; }
-.exit-door { position:absolute; left:30%; bottom:0; width:43%; height:84%; background:linear-gradient(90deg,#261d1a,#4a3227); border:3px solid #161311; }
-.exit-sign { position:absolute; left:35%; top:4%; padding:3px 5px; color:#fff0df; background:#d4472d; border:1px solid #ff9a65; font-size:8px; box-shadow:0 0 12px rgba(255,84,45,.75); }
-.wall-art { position:absolute; right:3%; bottom:6%; width:32%; height:14%; z-index:12; border:5px solid #1c1716; background:#b5a687; color:#40382e; display:grid; place-items:center; text-align:center; font-size:11px; box-shadow:0 6px 0 #0c0b0c; }
-.wall-art::before { content:""; width:76%; height:45%; background:linear-gradient(120deg,transparent 0 15%,#564d42 15% 17%,transparent 17% 31%,#564d42 31% 33%,transparent 33%); opacity:.8; }
-.plant { position:absolute; z-index:27; width:7%; aspect-ratio:1; border-radius:50% 50% 35% 35%; background:radial-gradient(ellipse at 50% 80%,#745132 0 25%,transparent 26%), radial-gradient(ellipse at 30% 40%,#2b7d3c 0 18%,transparent 19%), radial-gradient(ellipse at 65% 32%,#378a45 0 19%,transparent 20%), radial-gradient(ellipse at 45% 12%,#1d6e35 0 17%,transparent 18%); filter:drop-shadow(0 4px 2px #0008); }
-.plant.p1 { left:24%; top:25%; } .plant.p2 { right:28%; top:32%; } .plant.p3 { left:8%; top:79%; } .plant.p4 { right:32%; bottom:2%; }
-.character { position:absolute; z-index:35; width:9%; height:12%; transform-origin:50% 100%; }
-.character .head { position:absolute; left:33%; top:2%; width:34%; height:27%; border-radius:45% 45% 40% 40%; background:#bb7f62; border:2px solid #171317; box-shadow:inset 0 5px 0 #2a1d1a; }
-.character .torso { position:absolute; left:18%; top:25%; width:64%; height:54%; background:#d7d1c4; border:2px solid #17171b; clip-path:polygon(15% 0,85% 0,100% 100%,0 100%); }
-.character .torso::before { content:""; position:absolute; left:46%; top:0; width:8%; height:80%; background:#3b3132; }
-.character .arm { position:absolute; top:35%; width:19%; height:43%; background:#d1cabd; border:2px solid #17171b; transform-origin:50% 10%; }
-.character .arm.a1 { left:5%; transform:rotate(24deg); } .character .arm.a2 { right:5%; transform:rotate(-24deg); }
-.character .chair { position:absolute; left:17%; right:17%; bottom:-12%; height:31%; background:#17191d; border:2px solid #080a0c; border-radius:3px 3px 10px 10px; z-index:-1; }
-.character.trader { left:45.5%; top:54%; }
-.character.analyst { left:12%; top:56%; transform:scale(.9) rotate(2deg); }
-.character.risk { right:10%; top:56%; transform:scale(.9) rotate(-2deg); }
-.character.phone-worker { left:43%; top:26%; transform:scale(.82); }
-.character.phone-worker .torso { background:#172033; }
-.character.phone-worker .arm.a2 { transform:rotate(-72deg) translateY(-3px); }
-.character.newspaper { left:14%; top:33%; transform:scale(.88); }
-.character.newspaper .paper { position:absolute; left:-37%; top:35%; width:170%; height:42%; background:#d2c7a7; border:2px solid #5a5144; transform:rotate(3deg); z-index:8; }
-.character.newspaper .paper::before { content:"THE WALL STREET TIMES"; position:absolute; inset:7% 5%; color:#40382e; font-size:4px; font-weight:900; border-bottom:1px solid #5a5144; }
-.black-cat { position:absolute; left:37%; bottom:15%; z-index:19; width:6%; height:2.5%; border-radius:60% 40% 50% 40%; background:#090a0d; box-shadow:0 2px 3px #000; }
-.black-cat::before { content:""; position:absolute; right:-18%; top:-24%; width:45%; aspect-ratio:1; border-radius:50%; background:#090a0d; }
-.hotspot-anchor { position:absolute; z-index:60; }
-.hs-next { left:2%; top:2%; }
-.hs-phone { left:47%; top:29%; }
-.hs-news { left:15%; top:34%; }
-.hs-achievements { right:3%; top:31%; }
-.hs-analyst { left:5%; top:53.5%; }
-.hs-terminal { left:37%; top:52.7%; }
-.hs-risk { right:2%; top:56%; }
-.hs-lounge { left:8%; top:68%; }
-.hs-finance { right:2%; top:73%; }
-.hs-exit { left:30%; bottom:8.5%; }
+
+.monitor-shell::before {
+  content: "";
+  position: absolute;
+  left: 42%;
+  top: 100%;
+  width: 16%;
+  height: 13%;
+  background: #1d222a;
+  border-inline: 1px solid #090b0e;
+}
+
+.monitor-shell::after {
+  content: "";
+  position: absolute;
+  left: 30%;
+  top: 111%;
+  width: 40%;
+  height: 5%;
+  background: #11151a;
+}
+
+.crt-screen {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #304256;
+  background: #061019;
+  image-rendering: pixelated;
+}
+
+.scanlines {
+  position: absolute;
+  inset: 2px 2px 5px;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg, transparent 0 2px, rgba(0,0,0,.17) 2px 3px);
+  mix-blend-mode: multiply;
+}
+
+.m1 { left: 17.2%; top: 43.8%; width: 17.5%; height: 8.8%; transform: rotate(-7deg); }
+.m2 { left: 33.7%; top: 42.0%; width: 18.7%; height: 10.0%; transform: rotate(-2deg); }
+.m3 { left: 51.4%; top: 42.2%; width: 18.7%; height: 10.0%; transform: rotate(3deg); }
+.m4 { left: 5.8%; top: 47.1%; width: 15.5%; height: 8.1%; transform: rotate(-8deg); }
+.m5 { right: 4.3%; top: 47.1%; width: 15.5%; height: 8.1%; transform: rotate(8deg); }
+
+.staff-sprite {
+  --staff-image: none;
+  position: absolute;
+  z-index: 34;
+  width: 13.34%;
+  aspect-ratio: 64 / 104;
+  background-image: var(--staff-image);
+  background-repeat: no-repeat;
+  background-size: 200% 100%;
+  background-position: 0 0;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 5px 2px rgba(0,0,0,.55));
+  transform-origin: 50% 100%;
+  pointer-events: none;
+}
+
+.staff-trader { left: 43.8%; top: 53.2%; }
+.staff-analyst { left: 9.4%; top: 54.2%; transform: rotate(2deg) scale(.93); }
+.staff-risk { right: 7.8%; top: 54.2%; transform: rotate(-2deg) scale(.93); }
+.staff-phone { left: 43.5%; top: 23.1%; transform: scale(.90); }
+.staff-news { left: 10.0%; top: 34.3%; transform: scale(.91) rotate(-2deg); }
+
+.tv-overlay {
+  position: absolute;
+  right: 5.0%;
+  top: 14.4%;
+  z-index: 25;
+  width: 15.8%;
+  height: 10.0%;
+  overflow: hidden;
+  pointer-events: none;
+  color: #fff;
+  font-size: 5px;
+  line-height: 1.08;
+}
+
+.tv-overlay b {
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  padding: 1px 2px;
+  background: #d7363d;
+  font-size: 4.5px;
+}
+
+.tv-overlay span,
+.tv-overlay strong {
+  position: absolute;
+  left: 3px;
+  right: 3px;
+  bottom: 18%;
+  color: #152038;
+  z-index: 2;
+}
+
+.tv-overlay span { bottom: 27%; font-size: 4.4px; }
+.tv-overlay strong { font-size: 5.2px; }
+
+.tv-overlay i {
+  position: absolute;
+  left: 100%;
+  bottom: 1px;
+  width: max-content;
+  font-style: normal;
+  font-size: 4px;
+  background: #a82631;
+  padding: 1px 3px;
+  white-space: nowrap;
+  animation: newsScroll 9s linear infinite;
+}
+
+.next-market-anchor,
+.hotspot-anchor {
+  position: absolute;
+  z-index: 58;
+}
+
+.hs-next { left: 2.6%; top: 2.0%; }
+.hs-phone { left: 47.6%; top: 28.0%; }
+.hs-news { left: 14.2%; top: 34.8%; }
+.hs-achievements { right: 2.5%; top: 31.2%; }
+.hs-analyst { left: 5.2%; top: 52.1%; }
+.hs-terminal { left: 35.4%; top: 51.2%; }
+.hs-risk { right: 2.5%; top: 55.0%; }
+.hs-lounge { left: 8.2%; top: 69.3%; }
+.hs-finance { right: 2.2%; top: 74.3%; }
+.hs-exit { left: 29.2%; bottom: 8.5%; }
+
+.scene-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 54;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.18), transparent 11% 89%, rgba(0,0,0,.22)),
+    radial-gradient(ellipse at 52% 43%, transparent 0 46%, rgba(0,0,0,.05) 67%, rgba(0,0,0,.42) 100%);
+}
+
 @media (max-width: 390px) {
-  .office-scene { min-height: 720px; }
-  .poster { font-size: 7px; }
+  .office-scene { min-height: 860px; }
+  .tv-overlay { font-size: 4.5px; }
 }

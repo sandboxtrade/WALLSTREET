@@ -1,21 +1,50 @@
 .hotspot {
-  display:flex; align-items:center; gap:7px; min-height:40px; max-width:170px;
-  padding:6px 8px; border:1px solid #8a7137; border-radius:4px;
-  background:linear-gradient(180deg,rgba(7,15,24,.95),rgba(5,10,16,.96));
-  box-shadow:inset 0 0 0 1px #172334,0 4px 10px #0008,0 0 12px rgba(226,184,87,.08);
-  color:#e8edf3; text-align:left; cursor:pointer; transform:translateZ(0);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  max-width: 158px;
+  padding: 5px 7px;
+  border: 1px solid rgba(216,173,77,.70);
+  border-radius: 4px;
+  background: linear-gradient(180deg,rgba(6,13,21,.92),rgba(4,9,15,.94));
+  box-shadow: inset 0 0 0 1px rgba(54,72,93,.52), 0 4px 12px #0009, 0 0 10px rgba(226,184,87,.06);
+  color: #e8edf3;
+  text-align: left;
+  cursor: pointer;
+  transform: translateZ(0);
+  backdrop-filter: blur(2px);
 }
-.hotspot:hover,.hotspot:focus-visible { border-color:var(--gold-2); box-shadow:inset 0 0 0 1px #28384c,0 4px 12px #000a,0 0 16px rgba(229,185,85,.24); }
-.hotspot:active { transform:translateY(1px); }
-.hotspot-icon { flex:0 0 auto; width:21px; height:21px; display:grid; place-items:center; color:var(--gold-2); font-size:17px; }
+.hotspot:hover,.hotspot:focus-visible {
+  border-color: var(--gold-2);
+  box-shadow: inset 0 0 0 1px #31445c,0 4px 12px #000a,0 0 16px rgba(229,185,85,.22);
+}
+.hotspot:active { transform: translateY(1px); }
+.hotspot-icon { flex:0 0 auto; width:19px; height:19px; display:grid; place-items:center; color:var(--gold-2); font-size:15px; }
 .hotspot-copy { min-width:0; }
-.hotspot strong { display:block; color:#f2ead7; font-size:9px; line-height:1.1; letter-spacing:.025em; white-space:nowrap; }
-.hotspot span { display:block; margin-top:2px; color:#9bacbf; font-size:7px; white-space:nowrap; }
-.next-market-card { min-width:153px; display:block; padding:8px 10px; }
-.next-market-card .eyebrow { color:#9caabc; font-size:7px; letter-spacing:.08em; }
-.next-market-card .market-name { display:block; margin-top:3px; font-size:11px; color:#f1f3f5; }
-.next-market-card .countdown { display:inline-block; margin-top:3px; font-size:14px; color:#6dfa9e; text-shadow:0 0 8px rgba(74,231,143,.25); }
-.next-market-card .chev { float:right; margin-top:7px; color:#f6f6f7; font-size:17px; }
+.hotspot strong { display:block; color:#f2ead7; font-size:8.4px; line-height:1.08; letter-spacing:.035em; white-space:nowrap; }
+.hotspot-copy > span { display:block; margin-top:2px; color:#9bacbf; font-size:6.4px; white-space:nowrap; }
+
+.next-market-card {
+  position: relative;
+  min-width: 151px;
+  display: block;
+  padding: 8px 24px 8px 10px;
+  text-align: left;
+  border: 1px solid #5b6d83;
+  border-radius: 5px;
+  background: linear-gradient(180deg,rgba(9,18,30,.96),rgba(5,11,19,.97));
+  box-shadow: inset 0 0 0 1px #172437, 0 7px 18px #000a;
+  color: #edf2f7;
+  cursor: pointer;
+}
+.next-market-card .eyebrow { display:block; color:#93a3b9; font-size:6.6px; letter-spacing:.09em; }
+.next-market-card .market-name { display:block; margin-top:3px; font-size:10.5px; letter-spacing:.03em; }
+.next-market-card .countdown { display:block; margin-top:2px; color:#64ed95; font-size:13px; text-shadow:0 0 8px rgba(74,231,143,.25); }
+.next-market-card .market-meta { display:block; margin-top:2px; color:#687b92; font-size:5.8px; letter-spacing:.035em; }
+.next-market-card .chev { position:absolute; right:9px; top:50%; transform:translateY(-50%); font-size:20px; }
+
 .overlay-backdrop { position:fixed; inset:0; z-index:150; background:rgba(0,0,0,.62); display:flex; align-items:flex-end; justify-content:center; padding:20px max(10px,calc((100vw - var(--app-width))/2)); backdrop-filter:blur(3px); }
 .overlay-panel { width:min(100%,500px); max-height:min(72vh,680px); overflow:auto; padding:14px; background:linear-gradient(180deg,#111a28,#080e17); border:1px solid #41506a; border-radius:10px 10px 4px 4px; box-shadow:0 -18px 70px #000, inset 0 0 0 1px #0a0e14; }
 .overlay-head { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px; }
@@ -34,3 +63,11 @@
 .btn.danger { border-color:#a63a47; background:linear-gradient(#4e2028,#2d1218); color:#ff98a0; }
 .btn.gold { border-color:#9f7d35; background:linear-gradient(#4b3b1d,#2b2315); color:#ffe09b; }
 .btn:active { transform:translateY(1px); }
+
+@media (max-width: 385px) {
+  .hotspot { max-width: 142px; min-height: 34px; padding:4px 6px; }
+  .hotspot strong { font-size:7.7px; }
+  .hotspot-copy > span { font-size:5.9px; }
+  .hotspot-icon { width:17px; height:17px; font-size:14px; }
+  .next-market-card { min-width:140px; }
+}

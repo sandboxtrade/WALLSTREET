@@ -24,7 +24,7 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--gold); outl
   box-shadow: 0 0 70px #000;
   overflow-x: hidden;
 }
-.app-main { min-height: 100vh; padding-bottom: calc(76px + var(--safe-bottom)); }
+.app-main { min-height: 100vh; padding-top: calc(59px + max(8px, var(--safe-top))); padding-bottom: calc(76px + var(--safe-bottom)); }
 .gold { color: var(--gold); }
 .green { color: var(--green); }
 .red { color: var(--red); }
