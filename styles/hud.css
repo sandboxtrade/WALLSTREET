@@ -1,0 +1,66 @@
+.top-hud {
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  display: grid;
+  grid-template-columns: 1.45fr .92fr .88fr .82fr 46px;
+  gap: 6px;
+  padding: calc(7px + var(--safe-top)) 8px 7px;
+  background: linear-gradient(180deg, rgba(4,8,14,.98), rgba(6,10,17,.93));
+  border-bottom: 1px solid #243247;
+  box-shadow: 0 8px 24px rgba(0,0,0,.48);
+  backdrop-filter: blur(10px);
+}
+.hud-card {
+  position: relative;
+  min-width: 0;
+  height: 52px;
+  padding: 7px 9px;
+  border: 1px solid #293a50;
+  border-radius: 6px;
+  background: linear-gradient(180deg, #0b121e, #080e17);
+  box-shadow: inset 0 0 0 1px #05080d, 0 0 18px rgba(72,101,140,.08);
+  overflow: hidden;
+}
+.hud-card::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  pointer-events: none;
+  border: 1px solid rgba(255,255,255,.025);
+}
+.company-card { display: grid; grid-template-columns: 34px 1fr; gap: 8px; align-items: center; }
+.company-mark {
+  width: 32px; height: 32px; display: grid; place-items: center;
+  color: var(--gold); border: 1px solid #5d4d2a; border-radius: 50%; font-size: 18px;
+  text-shadow: 0 0 10px rgba(229,185,85,.35);
+}
+.company-copy { min-width: 0; }
+.hud-title { font-size: 12px; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; letter-spacing: .04em; }
+.hud-sub { display: block; margin-top: 2px; font-size: 8px; color: var(--muted); letter-spacing: .08em; white-space: nowrap; }
+.level-line { display: flex; align-items: center; gap: 6px; margin-top: 3px; }
+.level-bar { height: 4px; flex: 1; background: #141e2d; border: 1px solid #202f42; overflow: hidden; }
+.level-bar i { display: block; height: 100%; width: 62%; background: linear-gradient(90deg, #b98e39, var(--gold-2)); box-shadow: 0 0 7px var(--gold); }
+.balance-card { display: flex; flex-direction: column; justify-content: center; }
+.balance-main { font-size: 12px; font-weight: 800; white-space: nowrap; }
+.balance-delta { font-size: 9px; margin-top: 3px; }
+.time-card { display: flex; flex-direction: column; justify-content: center; }
+.time-date { font-size: 8px; color: var(--muted); letter-spacing: .07em; }
+.time-clock { font-size: 13px; margin-top: 3px; color: #f4f6f8; }
+.settings-button {
+  width: 46px; height: 52px; border: 1px solid #293a50; border-radius: 6px;
+  background: linear-gradient(#101927,#080e17); color: #b9c9de; font-size: 21px; cursor: pointer;
+}
+.settings-button:active { transform: translateY(1px); }
+@media (max-width: 455px) {
+  .top-hud { grid-template-columns: 1.35fr .88fr .84fr 42px; }
+  .time-card { display: none; }
+  .settings-button { width: 42px; }
+  .company-mark { display: none; }
+  .company-card { display: block; }
+}
+@media (max-width: 350px) {
+  .hud-card { padding-inline: 6px; }
+  .hud-title,.balance-main { font-size: 10px; }
+  .hud-sub { font-size: 7px; }
+}

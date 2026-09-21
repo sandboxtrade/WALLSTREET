@@ -1,1 +1,29 @@
-
+:root {
+  --bg: #060910;
+  --bg-deep: #03050a;
+  --panel: #0a111b;
+  --panel-2: #0f1825;
+  --panel-3: #121f2f;
+  --line: #2b3b50;
+  --line-soft: #1b2939;
+  --text: #edf1f6;
+  --muted: #8797aa;
+  --muted-2: #5e6d7e;
+  --gold: #e5b955;
+  --gold-2: #ffdc82;
+  --gold-dim: #755f32;
+  --green: #45df8f;
+  --green-deep: #0d6546;
+  --red: #ff6670;
+  --red-deep: #5f1f2b;
+  --blue: #6aa8ff;
+  --crt: #62f0a5;
+  --warm: #ffc56e;
+  --city-purple: #372558;
+  --city-violet: #161a3a;
+  --city-orange: #f29b58;
+  --shadow: rgba(0, 0, 0, .72);
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --app-width: 520px;
+}

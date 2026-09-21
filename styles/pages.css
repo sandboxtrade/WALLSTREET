@@ -1,0 +1,40 @@
+.page { min-height:calc(100vh - 128px); padding:14px; background:radial-gradient(circle at 50% 0,#121d2c 0,transparent 28rem),#070b12; }
+.page-head { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin:2px 0 14px; }
+.page h1 { margin:0; color:var(--gold-2); font-size:20px; letter-spacing:.04em; }
+.page .subtitle { margin-top:4px; color:var(--muted); font-size:9px; letter-spacing:.06em; }
+.card { margin-bottom:10px; padding:12px; border:1px solid #293a50; border-radius:7px; background:linear-gradient(180deg,#0c1420,#080e17); box-shadow:inset 0 0 0 1px #05080d; }
+.card-title { color:#e7ebf0; font-size:10px; letter-spacing:.08em; }
+.big { font-size:23px; }
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+.row { display:flex; align-items:center; justify-content:space-between; gap:10px; }
+.tx { display:grid; grid-template-columns:1fr auto; gap:8px; padding:10px 0; border-bottom:1px solid #1d2a3a; }
+.tx:last-child { border-bottom:0; }
+.tx b { font-size:10px; }.tx .muted { margin-top:3px; font-size:8px; }
+.market-chart-shell { position:relative; height:300px; border:1px solid #293a50; border-radius:7px; overflow:hidden; background:#050a10; box-shadow:inset 0 0 45px rgba(21,89,70,.07); }
+.market-chart { width:100%; height:100%; display:block; border:0; background:transparent; }
+.market-chart-overlay { position:absolute; inset:0; pointer-events:none; background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(0,0,0,.08) 3px 4px); }
+.market-timer { font-size:21px; color:var(--green); text-shadow:0 0 10px rgba(69,223,143,.2); }
+.market-stats { display:grid; grid-template-columns:1.2fr .9fr .9fr; gap:8px; }
+.market-stats > div { padding:9px; border:1px solid #213146; background:#08111b; }
+.market-stats small { display:block; color:var(--muted); font-size:7px; }
+.market-stats b { display:block; margin-top:4px; font-size:13px; }
+.trade-controls label { color:var(--muted); font-size:8px; }
+.trade-controls input { width:100%; margin:6px 0 8px; padding:11px; color:#e8edf4; border:1px solid #2c3d52; border-radius:5px; background:#070d15; }
+.trade-buttons { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.chat { height:150px; overflow:auto; padding:4px 0; font-size:9px; }
+.chat p { margin:7px 0; }.chat b { color:var(--gold); }
+.chatbar { display:flex; gap:6px; }
+.chatbar input { min-width:0; flex:1; padding:10px; color:#eef3f8; border:1px solid #293a50; border-radius:5px; background:#060b12; }
+.city-page { position:relative; min-height:780px; overflow:hidden; background:linear-gradient(#17142f,#643545 45%,#0f131b 45%); }
+.city-page::before { content:""; position:absolute; inset:0; background:radial-gradient(circle at 50% 40%,rgba(255,157,90,.13),transparent 44%); }
+.city-building { position:absolute; bottom:0; background:#0b1019; border:2px solid #293341; box-shadow:inset 0 0 35px #000; }
+.city-building::before { content:""; position:absolute; inset:12px; background:repeating-linear-gradient(0deg,rgba(237,177,79,.72) 0 5px,transparent 5px 17px),repeating-linear-gradient(90deg,transparent 0 12px,#0b1019 12px 18px); opacity:.75; }
+.city-building.b1 { left:2%; width:27%; height:46%; }.city-building.b2 { left:30%; width:36%; height:65%; }.city-building.b3 { right:2%; width:31%; height:53%; }
+.city-message { position:absolute; left:8%; right:8%; bottom:90px; z-index:2; padding:12px; color:var(--gold-2); text-align:center; border:1px solid #98783a; background:#080e17eb; font-size:10px; }
+.progress-track { height:8px; overflow:hidden; background:#060a0f; border:1px solid #1f2d3e; }
+.progress-track i { display:block; height:100%; width:60%; background:linear-gradient(90deg,#8d6b2d,var(--gold)); }
+.inventory-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:9px; }
+.inventory-item { min-height:115px; padding:12px; display:flex; flex-direction:column; justify-content:flex-end; border:1px solid #2a3a50; background:radial-gradient(circle at 50% 28%,#253047,#0b111b 56%); }
+.inventory-item .glyph { margin:auto; font-size:30px; color:var(--gold); }.inventory-item b { font-size:10px; }.inventory-item span { margin-top:3px; color:var(--muted); font-size:8px; }
+@media (max-width:360px) { .market-stats { grid-template-columns:1fr 1fr; }.market-stats > div:first-child { grid-column:1 / -1; } }
