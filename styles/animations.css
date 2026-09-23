@@ -33,3 +33,18 @@
 @media (prefers-reduced-motion: reduce) {
   *,*::before,*::after { animation-duration:.001ms !important; animation-iteration-count:1 !important; scroll-behavior:auto !important; }
 }
+
+/* Runtime accessibility/settings classes. Defaults are visually unchanged. */
+.app-shell.motion-off .staff-sprite,
+.app-shell.motion-off .scene-light,
+.app-shell.motion-off .hotspot,
+.app-shell.motion-off .crt-screen,
+.app-shell.motion-off .tv-news-copy,
+.app-shell.motion-off .asset-cat,
+.app-shell.motion-off .overlay-panel {
+  animation: none !important;
+}
+
+.app-shell.crt-off .screen-glass { display: none; }
+.app-shell.crt-off .asset-screen { box-shadow: inset 0 0 6px rgba(0,0,0,.75); }
+.app-shell.crt-off .crt-screen { animation: none !important; filter: none; }

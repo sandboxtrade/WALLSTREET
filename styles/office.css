@@ -31,20 +31,22 @@
   height: auto;
   user-select: none;
   pointer-events: none;
-  image-rendering: auto;
-  filter: drop-shadow(0 7px 5px rgba(0,0,0,.33));
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  filter: drop-shadow(0 7px 6px rgba(0,0,0,.33));
 }
 
-.asset-tv { right: 4.0%; top: 20.2%; width: 23.2%; z-index: 19; }
-.asset-trading-desk { left: 9.6%; top: 31.8%; width: 80.0%; z-index: 24; }
-.asset-analyst-desk { left: 1.4%; top: 51.0%; width: 41.5%; z-index: 22; }
-.asset-risk-desk { right: 1.6%; top: 52.0%; width: 40.0%; z-index: 22; }
-.asset-lounge { left: 3.0%; top: 68.8%; width: 41.5%; z-index: 19; }
-.asset-finance-desk { right: 3.7%; top: 68.2%; width: 40.0%; z-index: 21; }
-.asset-exit { left: 37.3%; top: 82.0%; width: 25.0%; z-index: 18; }
+/* v4.1 layout pass */
+.asset-tv { right: 4.6%; top: 24.2%; width: 18.0%; z-index: 18; }
+.asset-trading-desk { left: 9.8%; top: 34.1%; width: 80.6%; z-index: 24; }
+.asset-analyst-desk { left: 4.4%; top: 54.0%; width: 35.2%; z-index: 22; }
+.asset-risk-desk { right: 4.5%; top: 54.2%; width: 35.5%; z-index: 22; }
+.asset-lounge { left: 6.4%; top: 74.2%; width: 36.4%; z-index: 19; }
+.asset-finance-desk { right: 6.2%; top: 73.8%; width: 35.8%; z-index: 21; }
+.asset-exit { left: -3.8%; top: 83.2%; width: 30.0%; z-index: 18; }
 
-.asset-cat { left: 44.0%; top: 75.8%; width: 10.0%; z-index: 24; filter: drop-shadow(0 3px 2px rgba(0,0,0,.45)); }
-.asset-newspapers { left: 8.2%; top: 29.3%; width: 13.0%; z-index: 16; opacity: .96; }
+.asset-cat { left: 45.0%; top: 74.5%; width: 9.3%; z-index: 24; filter: drop-shadow(0 3px 2px rgba(0,0,0,.45)); }
+.asset-newspapers { left: 9.4%; top: 29.2%; width: 10.6%; z-index: 16; opacity: .96; }
 
 .window-weather {
   position: absolute;
@@ -92,34 +94,34 @@
 
 .light-trading {
   left: 14%;
-  top: 30%;
+  top: 32%;
   width: 73%;
-  height: 29%;
-  background: radial-gradient(ellipse at 50% 47%, rgba(59,213,145,.09), rgba(255,181,80,.025) 42%, transparent 72%);
+  height: 26%;
+  background: radial-gradient(ellipse at 50% 47%, rgba(59,213,145,.08), rgba(255,181,80,.022) 42%, transparent 72%);
 }
 
 .light-left {
   left: 0;
-  top: 48%;
-  width: 47%;
-  height: 26%;
-  background: radial-gradient(circle at 33% 42%, rgba(255,180,72,.09), transparent 66%);
+  top: 53%;
+  width: 43%;
+  height: 18%;
+  background: radial-gradient(circle at 34% 42%, rgba(255,180,72,.085), transparent 66%);
 }
 
 .light-right {
   right: 0;
-  top: 48%;
-  width: 46%;
-  height: 28%;
-  background: radial-gradient(circle at 64% 40%, rgba(255,180,72,.08), transparent 68%);
+  top: 53%;
+  width: 43%;
+  height: 18%;
+  background: radial-gradient(circle at 65% 40%, rgba(255,180,72,.08), transparent 68%);
 }
 
 .light-exit {
-  left: 31%;
-  bottom: 1%;
-  width: 38%;
-  height: 20%;
-  background: radial-gradient(circle at 50% 53%, rgba(255,95,46,.10), transparent 67%);
+  left: 32%;
+  bottom: 0;
+  width: 36%;
+  height: 14%;
+  background: radial-gradient(circle at 50% 63%, rgba(255,95,46,.095), transparent 67%);
 }
 
 .staff-sprite {
@@ -137,43 +139,43 @@
 }
 
 .staff-trader {
-  left: 41.5%;
-  top: 43.2%;
-  width: 16.0%;
+  left: 42.8%;
+  top: 46.7%;
+  width: 13.4%;
   aspect-ratio: 384 / 597;
   z-index: 35;
 }
 
 .staff-analyst {
-  left: 15.2%;
-  top: 57.1%;
-  width: 12.8%;
+  left: 12.8%;
+  top: 59.0%;
+  width: 12.4%;
   aspect-ratio: 384 / 512;
   z-index: 35;
 }
 
 .staff-risk {
-  right: 13.8%;
-  top: 57.8%;
+  right: 12.9%;
+  top: 59.1%;
   width: 12.4%;
   aspect-ratio: 384 / 512;
   transform: scaleX(-1);
-  opacity: .88;
+  opacity: .9;
   z-index: 35;
 }
 
 .staff-phone {
-  left: 57.0%;
-  top: 23.0%;
-  width: 15.2%;
+  left: 56.6%;
+  top: 23.8%;
+  width: 13.2%;
   aspect-ratio: 543 / 724;
   z-index: 18;
 }
 
 .staff-news {
-  left: 12.0%;
-  top: 25.1%;
-  width: 16.0%;
+  left: 12.8%;
+  top: 24.8%;
+  width: 14.3%;
   aspect-ratio: 384 / 512;
   z-index: 18;
 }
@@ -183,10 +185,10 @@
   z-index: 31;
   overflow: hidden;
   pointer-events: none;
-  border: 1px solid rgba(52,80,97,.52);
-  border-radius: 2px;
+  border: 1px solid rgba(52,80,97,.44);
+  border-radius: 3px;
   background: #061019;
-  box-shadow: 0 0 9px rgba(78,226,154,.11), inset 0 0 6px rgba(0,0,0,.75);
+  box-shadow: 0 0 6px rgba(78,226,154,.08), inset 0 0 6px rgba(0,0,0,.75);
   transform-origin: center;
 }
 
@@ -204,38 +206,38 @@
   inset: 0;
   pointer-events: none;
   background:
-    repeating-linear-gradient(0deg, transparent 0 2px, rgba(0,0,0,.18) 2px 3px),
-    linear-gradient(115deg, rgba(255,255,255,.07), transparent 30%);
+    repeating-linear-gradient(0deg, transparent 0 2px, rgba(0,0,0,.16) 2px 3px),
+    linear-gradient(115deg, rgba(255,255,255,.06), transparent 30%);
   mix-blend-mode: multiply;
 }
 
-/* Main trading desk screens */
-.screen-trade-1 { left: 21.7%; top: 38.8%; width: 8.2%; height: 4.45%; transform: rotate(-5deg); }
-.screen-trade-2 { left: 34.4%; top: 36.85%; width: 11.2%; height: 5.05%; transform: rotate(-2deg); }
-.screen-trade-3 { left: 46.8%; top: 36.45%; width: 11.3%; height: 5.05%; }
-.screen-trade-4 { left: 59.8%; top: 37.45%; width: 9.5%; height: 4.75%; transform: rotate(2.5deg); }
-.screen-trade-5 { left: 72.7%; top: 39.1%; width: 7.8%; height: 4.2%; transform: rotate(5deg); }
+/* Main trading desk screens - embedded into CRTs */
+.screen-trade-1 { left: 21.0%; top: 39.0%; width: 5.9%; aspect-ratio: 1.38; transform: rotate(-3deg); }
+.screen-trade-2 { left: 34.2%; top: 37.0%; width: 7.4%; aspect-ratio: 1.43; transform: rotate(-1deg); }
+.screen-trade-3 { left: 46.4%; top: 36.4%; width: 7.5%; aspect-ratio: 1.43; }
+.screen-trade-4 { left: 58.7%; top: 37.2%; width: 6.7%; aspect-ratio: 1.40; transform: rotate(1deg); }
+.screen-trade-5 { left: 70.3%; top: 38.7%; width: 5.5%; aspect-ratio: 1.36; transform: rotate(3deg); }
 
 /* Analyst screens */
-.screen-analyst-1 { left: 9.4%; top: 55.1%; width: 7.2%; height: 3.55%; transform: rotate(-4deg); }
-.screen-analyst-2 { left: 17.9%; top: 54.2%; width: 7.9%; height: 3.8%; transform: rotate(-1deg); }
-.screen-analyst-3 { left: 27.0%; top: 55.15%; width: 6.2%; height: 3.25%; transform: rotate(3deg); }
+.screen-analyst-1 { left: 11.0%; top: 57.8%; width: 5.7%; aspect-ratio: 1.38; transform: rotate(-4deg); }
+.screen-analyst-2 { left: 18.6%; top: 57.0%; width: 5.9%; aspect-ratio: 1.40; transform: rotate(-1deg); }
+.screen-analyst-3 { left: 26.2%; top: 57.9%; width: 4.7%; aspect-ratio: 1.34; transform: rotate(2deg); }
 
 /* Risk screens */
-.screen-risk-1 { right: 28.4%; top: 55.3%; width: 7.3%; height: 3.5%; transform: rotate(-3deg); }
-.screen-risk-2 { right: 18.9%; top: 54.5%; width: 7.5%; height: 3.8%; }
-.screen-risk-3 { right: 9.9%; top: 55.55%; width: 6.0%; height: 3.15%; transform: rotate(3deg); }
+.screen-risk-1 { right: 25.9%; top: 58.0%; width: 5.9%; aspect-ratio: 1.38; transform: rotate(-2deg); }
+.screen-risk-2 { right: 18.0%; top: 57.3%; width: 5.9%; aspect-ratio: 1.40; }
+.screen-risk-3 { right: 10.5%; top: 58.1%; width: 4.8%; aspect-ratio: 1.34; transform: rotate(2deg); }
 
 /* Finance screens */
-.screen-finance-1 { right: 27.0%; top: 71.6%; width: 7.7%; height: 3.75%; transform: rotate(-2deg); }
-.screen-finance-2 { right: 16.9%; top: 72.0%; width: 7.4%; height: 3.55%; transform: rotate(2deg); }
+.screen-finance-1 { right: 24.1%; top: 75.8%; width: 5.9%; aspect-ratio: 1.40; transform: rotate(-1deg); }
+.screen-finance-2 { right: 16.6%; top: 76.0%; width: 4.8%; aspect-ratio: 1.34; transform: rotate(1.2deg); }
 
 /* TV */
 .screen-tv {
-  right: 8.5%;
-  top: 22.0%;
-  width: 13.9%;
-  height: 7.0%;
+  right: 8.1%;
+  top: 26.0%;
+  width: 10.7%;
+  aspect-ratio: 1.34;
   z-index: 27;
   border-radius: 4px 4px 6px 6px;
   transform: perspective(400px) rotateY(-1deg);
@@ -244,14 +246,14 @@
 .tv-news-copy {
   position: absolute;
   z-index: 33;
-  right: 9.0%;
-  top: 22.35%;
-  width: 12.8%;
-  height: 6.4%;
+  right: 8.5%;
+  top: 26.15%;
+  width: 9.9%;
+  aspect-ratio: 1.34;
   overflow: hidden;
   pointer-events: none;
   color: #f4f4e8;
-  font-size: 4.2px;
+  font-size: 3.3px;
   line-height: 1.08;
 }
 
@@ -261,7 +263,7 @@
   top: 2px;
   padding: 1px 2px;
   background: #ce343b;
-  font-size: 4px;
+  font-size: 3.5px;
 }
 
 .tv-news-copy span {
@@ -269,7 +271,7 @@
   left: 3px;
   bottom: 18%;
   color: #f2e8d0;
-  font-size: 4px;
+  font-size: 3.3px;
 }
 
 .tv-news-copy strong {
@@ -277,7 +279,7 @@
   left: 3px;
   right: 3px;
   bottom: 8%;
-  font-size: 4.8px;
+  font-size: 4px;
   color: #fff;
 }
 
@@ -288,7 +290,7 @@
   width: max-content;
   padding: 1px 3px;
   background: #9f202a;
-  font-size: 3.7px;
+  font-size: 3.0px;
   font-style: normal;
   white-space: nowrap;
   animation: newsScroll 9s linear infinite;
@@ -297,19 +299,19 @@
 .next-market-anchor,
 .hotspot-anchor {
   position: absolute;
-  z-index: 61;
+  z-index: 52;
 }
 
-.hs-next { left: 2.5%; top: 1.6%; }
-.hs-phone { left: 49.5%; top: 26.5%; }
-.hs-news { left: 5.5%; top: 30.6%; }
-.hs-achievements { right: 3.2%; top: 31.3%; }
-.hs-terminal { left: 34.0%; top: 45.6%; }
-.hs-analyst { left: 3.2%; top: 57.6%; }
-.hs-risk { right: 2.8%; top: 58.0%; }
-.hs-lounge { left: 5.5%; top: 72.4%; }
-.hs-finance { right: 2.6%; top: 73.4%; }
-.hs-exit { left: 33.7%; bottom: 5.0%; }
+.hs-next { left: 2.6%; top: 6.5%; }
+.hs-phone { left: 55.0%; top: 30.6%; }
+.hs-news { left: 8.2%; top: 31.4%; }
+.hs-achievements { right: 3.6%; top: 32.3%; }
+.hs-terminal { left: 34.7%; top: 46.7%; }
+.hs-analyst { left: 4.8%; top: 59.7%; }
+.hs-risk { right: 4.1%; top: 60.0%; }
+.hs-lounge { left: 6.5%; top: 75.8%; }
+.hs-finance { right: 5.0%; top: 75.2%; }
+.hs-exit { left: 2.0%; bottom: 5.4%; }
 
 .scene-vignette {
   position: absolute;
@@ -317,13 +319,13 @@
   z-index: 55;
   pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(0,0,0,.19), transparent 9% 91%, rgba(0,0,0,.19)),
-    linear-gradient(180deg, rgba(0,0,0,.11), transparent 13% 85%, rgba(0,0,0,.24)),
-    radial-gradient(ellipse at 50% 46%, transparent 0 54%, rgba(0,0,0,.16) 79%, rgba(0,0,0,.34) 100%);
+    linear-gradient(90deg, rgba(0,0,0,.18), transparent 9% 91%, rgba(0,0,0,.18)),
+    linear-gradient(180deg, rgba(0,0,0,.10), transparent 13% 85%, rgba(0,0,0,.22)),
+    radial-gradient(ellipse at 50% 46%, transparent 0 55%, rgba(0,0,0,.14) 79%, rgba(0,0,0,.30) 100%);
 }
 
 @media (max-width: 390px) {
-  .tv-news-copy { font-size: 3.8px; }
+  .tv-news-copy { font-size: 3px; }
   .hotspot-anchor { transform: scale(.94); transform-origin: left center; }
   .hs-risk,.hs-finance,.hs-achievements { transform-origin: right center; }
 }

@@ -1,7 +1,7 @@
 const GLYPHS = {
   office: '▥',
   city: '⌖',
-  market: '▥',
+  market: '↗',
   company: '♙',
   inventory: '▣',
   phone: '☎',

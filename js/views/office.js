@@ -1,3 +1,4 @@
+import { escapeHTML } from '../core/dom.js';
 import { icon } from '../components/icons.js';
 import { OFFICE_OBJECTS } from '../data/officeObjects.js';
 import { formatDuration } from '../core/format.js';
@@ -5,23 +6,27 @@ import { formatDuration } from '../core/format.js';
 function hotspot(object) {
   const target = object.view ? `data-view="${object.view}"` : `data-action="${object.action}"`;
   return `<div class="hotspot-anchor ${object.className}">
-    <button class="hotspot" ${target} aria-label="${object.label}: ${object.subtitle}">
+    <button class="hotspot" ${target} aria-label="${escapeHTML(object.label)}: ${escapeHTML(object.subtitle)}">
       <span class="hotspot-icon">${icon(object.icon)}</span>
-      <span class="hotspot-copy"><strong>${object.label}</strong><span>${object.subtitle}</span></span>
+      <span class="hotspot-copy"><strong>${escapeHTML(object.label)}</strong><span>${escapeHTML(object.subtitle)}</span></span>
     </button>
   </div>`;
 }
 
 function asset(path, className, alt = '') {
-  return `<img class="office-asset ${className}" src="./assets/${path}" alt="${alt}" draggable="false">`;
+  return `<img class="office-asset ${className}" src="./assets/${path}" alt="${escapeHTML(alt)}" draggable="false">`;
 }
 
 function staff(path, className, label) {
-  return `<span class="staff-sprite ${className}" style="--staff-image:url('./assets/characters/${path}.png')" role="img" aria-label="${label}"></span>`;
+  return `<span class="staff-sprite ${className}" style="--staff-image:url('./assets/characters/${path}.png')" role="img" aria-label="${escapeHTML(label)}"></span>`;
 }
 
 function screen(className, mode) {
   return `<div class="asset-screen ${className}" aria-hidden="true"><canvas class="crt-screen" data-crt="${mode}"></canvas><span class="screen-glass"></span></div>`;
+}
+
+function countdownText(next) {
+  return next.secondsToOpen <= 0 ? 'READY' : formatDuration(next.secondsToOpen);
 }
 
 export function renderOffice(state) {
@@ -82,14 +87,14 @@ export function renderOffice(state) {
         <b>LIVE</b>
         <span>MARKET NEWS</span>
         <strong>TECH STOCKS SURGE</strong>
-        <i>PIT #184 · FLOW WATCH · CLOSING BELL</i>
+        <i>${escapeHTML(state.market.id)} · FLOW WATCH · CLOSING BELL</i>
       </div>
 
       <div class="next-market-anchor hs-next">
         <button class="next-market-card" data-action="nextMarket">
           <span class="eyebrow">NEXT MARKET</span>
-          <span class="market-name">${next.id}</span>
-          <b id="nextMarketCountdown" class="countdown">${formatDuration(next.secondsToOpen)}</b>
+          <span class="market-name">${escapeHTML(next.id)}</span>
+          <b id="nextMarketCountdown" class="countdown">${countdownText(next)}</b>
           <span class="market-meta">${next.players}/${next.capacity} FIRMS · ${next.durationMinutes} MIN</span>
           <span class="chev">›</span>
         </button>
@@ -103,5 +108,5 @@ export function renderOffice(state) {
 
 export function updateOfficeLive(state) {
   const el = document.querySelector('#nextMarketCountdown');
-  if (el) el.textContent = formatDuration(state.markets.next.secondsToOpen);
+  if (el) el.textContent = countdownText(state.markets.next);
 }

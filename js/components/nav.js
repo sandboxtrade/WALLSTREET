@@ -3,9 +3,9 @@ import { icon } from './icons.js';
 const ITEMS = [
   ['office', 'office', 'OFFICE'],
   ['city', 'city', 'CITY'],
-  ['market', 'market', 'MARKETS'],
+  ['market', 'market', 'TRADE'],
   ['company', 'company', 'COMPANY'],
-  ['inventory', 'inventory', 'INVENTORY'],
+  ['inventory', 'inventory', 'GEAR'],
 ];
 
 export function renderNav(state) {

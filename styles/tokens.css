@@ -7,8 +7,8 @@
   --line: #2b3b50;
   --line-soft: #1b2939;
   --text: #edf1f6;
-  --muted: #8797aa;
-  --muted-2: #5e6d7e;
+  --muted: #93a1b3;
+  --muted-2: #687789;
   --gold: #e5b955;
   --gold-2: #ffdc82;
   --gold-dim: #755f32;
@@ -19,11 +19,21 @@
   --blue: #6aa8ff;
   --crt: #62f0a5;
   --warm: #ffc56e;
-  --city-purple: #372558;
-  --city-violet: #161a3a;
-  --city-orange: #f29b58;
-  --shadow: rgba(0, 0, 0, .72);
+  --shadow: rgba(0,0,0,.72);
   --safe-top: env(safe-area-inset-top, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   --app-width: 520px;
+
+  --text-xs: 9px;
+  --text-sm: 11px;
+  --text-md: 13px;
+  --text-lg: 16px;
+  --text-xl: 20px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --radius: 2px;
+  --hud-height: 54px;
+  --nav-height: 58px;
 }

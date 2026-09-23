@@ -1,0 +1,46 @@
+WALLSTREET v4.1 — latest full build
+
+Project: mobile-first pixel-art PvP game about financial firms and an internal player-driven market, styled after Wall Street offices of the 1980s–1990s.
+
+Architecture:
+- index.html — entry point
+- app.js — orchestrator only; should remain the "head" of the app, not a dumping ground
+- styles/ — split CSS modules
+- js/core/ — state/helpers
+- js/components/ — HUD/nav/overlays/icons
+- js/data/ — static office object definitions
+- js/views/ — office, market, finance, company, city, inventory
+- js/systems/ — world/weather/CRT/market engine/chart/storage
+- assets/ — office, furniture, characters, props, city layers
+
+Current visual reference: the supplied premium vertical pixel-art Wall Street office image. The office must feel like a living interactive world, not a flat menu.
+
+Latest v4.1 layout pass:
+- rebalanced central Trading Desk scale and placement
+- repositioned Analyst / Risk / Finance / Lounge / TV / Exit zones
+- moved characters closer to their workstations
+- reduced CRT canvas overlays so they sit inside monitor glass
+- reduced hotspot size
+- moved Next Market lower to avoid HUD overlap
+
+Known temporary issue:
+- no dedicated Risk Manager character asset yet; current build mirrors the Analyst sprite as a placeholder
+
+Next visual tasks:
+1. Test v4.1 on iPhone/GitHub Pages and tune coordinates from screenshots.
+2. Reduce hotspot UI further so the physical office dominates.
+3. Replace Risk Manager placeholder sprite.
+4. Make embedded CRT/TV overlays fit the exact screen glass better.
+5. Add/restore atmosphere only after composition is stable.
+
+Core game rules to preserve:
+- office is the primary interactive interface
+- player-driven PvP markets; price movement comes from participant order flow versus market depth
+- no RNG-generated price path in the actual PvP mode
+- SOL = trading capital; Credits = progression/cosmetics/tools, not direct profit multipliers
+- mobile-first vertical design
+- do not turn the market screen into Binance/TradingView
+
+--- v4.3 CODE STABILITY PASS ---
+Built on top of v4.2 layout pass. Office composition/assets were intentionally left unchanged.
+Key code changes: deterministic market lifecycle and settlement, room-capital limits, correct partial close/flip behavior, market/next-market scheduling separation, validated v4.3 save state with v2 fallback, transaction cap/withdraw fix, date rollover, escaped dynamic UI strings, static CRT/weather behavior under reduced motion, resize-safe weather drops.

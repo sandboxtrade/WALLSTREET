@@ -7,8 +7,8 @@ function sizeCanvas(canvas) {
   const rect = canvas.getBoundingClientRect();
   if (!rect.width || !rect.height) return null;
   const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-  const width = Math.max(60, Math.floor(rect.width * dpr));
-  const height = Math.max(32, Math.floor(rect.height * dpr));
+  const width = Math.max(32, Math.floor(rect.width * dpr));
+  const height = Math.max(18, Math.floor(rect.height * dpr));
   if (canvas.width !== width || canvas.height !== height) { canvas.width = width; canvas.height = height; }
   return { ctx: canvas.getContext('2d'), width, height };
 }
@@ -25,7 +25,21 @@ function ticker(ctx,w,h,t){ctx.fillStyle='#e1ba59';ctx.font=`${Math.max(7,h*.23)
 function analysis(ctx,w,h,t){grid(ctx,w,h);line(ctx,w,h,t,2.4);ctx.fillStyle='rgba(84,164,255,.6)';ctx.fillRect(w*.65,h*.12,w*.26,h*.22);}
 
 function drawCanvas(canvas,t){const s=sizeCanvas(canvas);if(!s)return;const{ctx,width:w,height:h}=s;ctx.fillStyle='#061019';ctx.fillRect(0,0,w,h);grid(ctx,w,h);const mode=canvas.dataset.crt||'line';if(mode==='line')line(ctx,w,h,t);else if(mode==='candles')candles(ctx,w,h,t);else if(mode==='flow')bars(ctx,w,h,t);else if(mode==='risk')risk(ctx,w,h,t);else if(mode==='ticker')ticker(ctx,w,h,t);else if(mode==='analysis')analysis(ctx,w,h,t);ctx.fillStyle='rgba(87,236,167,.025)';ctx.fillRect(0,0,w,h);}
+function drawAll(t=0){document.querySelectorAll('[data-crt]').forEach((canvas)=>drawCanvas(canvas,t));}
 
-function frame(t){if(!running)return;if(!stateRef.ui.reducedMotion&&t-lastDraw>90){document.querySelectorAll('[data-crt]').forEach((c)=>drawCanvas(c,t));lastDraw=t;}raf=requestAnimationFrame(frame);}
-export function startCRT(state){stopCRT();stateRef=state;running=true;raf=requestAnimationFrame(frame);}
+function frame(t){
+  if(!running || !stateRef)return;
+  if(t-lastDraw>90){drawAll(t);lastDraw=t;}
+  raf=requestAnimationFrame(frame);
+}
+
+export function startCRT(state){
+  stopCRT();
+  stateRef=state;
+  drawAll(0);
+  if(state.ui.reducedMotion || !state.ui.crtEffects)return;
+  running=true;
+  raf=requestAnimationFrame(frame);
+}
+
 export function stopCRT(){running=false;if(raf)cancelAnimationFrame(raf);raf=0;stateRef=null;lastDraw=0;}
